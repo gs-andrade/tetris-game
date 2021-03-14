@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject MainMenuObj;
     public GameObject PauseMenuObj;
     public GameObject GameOverMenuObj;
-
+    public GameObject PauseButton;
     public void ToogleMenu(bool toogle, MenuType menuType)
     {
         transform.DOKill();
@@ -24,8 +24,14 @@ public class PauseMenu : MonoBehaviour
 
         GameObject menuToActive = null;
 
-        switch (menuType) 
+        switch (menuType)
         {
+            case MenuType.None:
+                {
+                    menuToActive = PauseButton;
+                    break;
+                }
+
             case MenuType.MainMenu:
                 menuToActive = MainMenuObj;
                 break;
@@ -42,6 +48,7 @@ public class PauseMenu : MonoBehaviour
         MainMenuObj.SetActive(false);
         PauseMenuObj.SetActive(false);
         GameOverMenuObj.SetActive(false);
+        PauseButton.SetActive(false);
 
 
         if (menuToActive != null)

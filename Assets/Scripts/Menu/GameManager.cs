@@ -30,12 +30,12 @@ public class GameManager : MonoBehaviour
         menuController.UpdateScore(0);
     }
 
-    public void ResumeGame()
-    {
-        menuController.ToogleMenu(false, MenuType.None);
-        state = GameState.Gameplay;
-    }
 
+    public void PauseGame()
+    {
+        menuController.ToogleMenu(true, MenuType.PauseMenu);
+        state = GameState.Paused;
+    }
     public void UnpauseGame()
     {
         menuController.ToogleMenu(false, MenuType.None);
